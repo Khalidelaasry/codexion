@@ -64,6 +64,22 @@ This produces the `codexion` executable.
 
 All times are given in milliseconds.
 
+Current development milestone: the executable validates arguments and exits;
+the simulation described below is not implemented yet.
+
+Numeric arguments must contain decimal digits only (leading zeros are accepted).
+The coder count must be between 1 and `INT_MAX`; the required compilation count
+may be between 0 and `INT_MAX`. Durations and cooldown may be between 0 and
+`LONG_MAX`. Signs, whitespace, overflow, and scheduler names other than exactly
+`fifo` or `edf` are rejected with an error on standard error and exit status 1.
+Valid arguments currently produce no output and exit with status 0.
+
+After compiling, run the argument parsing tests with:
+
+```bash
+python3 -B -m unittest discover -s tests -v
+```
+
 ### Example
 
 ```bash
